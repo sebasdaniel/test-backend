@@ -7,7 +7,7 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<style>
-		#form{
+		.space-below{
 			margin-bottom: 2em;
 		}
 		.main-content{
@@ -22,6 +22,7 @@
 				<h1>Solve The Cube Summation Problem</h1>
 			</div>
 			<form id="form">
+				<input type="hidden" id="_token" name="_token" value="{{{ csrf_token() }}}" />
 				<div class="row form-group">
 					<div class="col-md-4">
 						<div>
@@ -47,8 +48,8 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h4><label for="test">Problem</label></h4>
-						<textarea id="test" class="form-control" rows="13"></textarea>
+						<h4><label for="problem">Problem</label></h4>
+						<textarea id="problem" name="problem" class="form-control" rows="13"></textarea>
 					</div>
 				</div>
 				<div class="row form-group">
@@ -74,12 +75,12 @@
 						<textarea id="result" class="form-control" rows="7" readonly></textarea>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<button class="btn btn-primary">Solve problem</button>
-					</div>
-				</div>
 			</form>
+			<div class="row space-below">
+				<div class="col-md-12 text-center">
+					<button id="send-button" class="btn btn-primary">Solve problem</button>
+				</div>
+			</div>
 			<div class="well">
 				<p class="text-center">
 					Problem description <a href="https://www.hackerrank.com/challenges/cube-summation">here</a>
@@ -91,5 +92,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			$("#send-button").on('click', function(){
+				var data = $("#form").serialize();
+				$.ajax({
+					url: "{{ url('summ') }}",
+					type: "POST",
+					data: data,
+					 success: function(result){
+						$("#result").val(result);
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

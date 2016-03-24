@@ -19,7 +19,5 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     // Calculate the cube summation (optional: return page with result)
-    Route::post('/summ', function(Request $request){
-    	//TODO code here
-    });
+    Route::post('/summ', 'SolutionController@solve');
 });
