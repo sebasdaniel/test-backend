@@ -13,8 +13,13 @@
 
 Route::group(['middleware' => ['web']], function () {
 
+	// Home page (form to set the test case)
     Route::get('/', function () {
-        return view('welcome');
+        return view('home');
     });
 
+    // Calculate the cube summation (optional: return page with result)
+    Route::post('/summ', function(Request $request){
+    	//TODO code here
+    });
 });
