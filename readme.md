@@ -1,7 +1,7 @@
 # test-gravility-backend
 
-La aplicación resuelve el problema [cube summation](https://www.hackerrank.com/challenges/cube-summation) de la pagina HakerRank.
-Las capas con que cuenta la aplicación son las misma de Laravel, ya que esta basado en el, pero las que se usan en este caso son:
+La aplicación resuelve el problema [cube summation](https://www.hackerrank.com/challenges/cube-summation) de la pagina [HakerRank](https://www.hackerrank.com).
+Las capas con que cuenta la aplicación son las misma de Laravel, ya que se utilizo dicho framework, pero las que se usan en este caso son:
 
 - La **vista** (*/resource/views/home.blade.php*), la cual es usada para mostrar un formulario para la entrada de datos y visualización de la solución del problema, en ésta se utiliza *AJAX* para transmitir los datos del formulario.
 - El **controlador** (*app/Http/Controllers/SolutionController.php*), el cual contiene la lógica de la aplicación, que en este caso es solucionar el problema *cube summation*.
