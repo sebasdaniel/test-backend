@@ -1,27 +1,13 @@
-# Laravel PHP Framework
+# test-gravility-backend
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+La aplicación resuelve el problema [cube summation](https://www.hackerrank.com/challenges/cube-summation) de la pagina HakerRank.
+Las capas con que cuenta la aplicación son las misma de Laravel, ya que esta basado en el, pero las que se usan en este caso son:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+- La **vista** (*/resource/views/home.blade.php*), la cual es usada para mostrar un formulario para la entrada de datos y visualización de la solución del problema, en ésta se utiliza *AJAX* para transmitir los datos del formulario.
+- El **controlador** (*app/Http/Controllers/SolutionController.php*), el cual contiene la lógica de la aplicación, que en este caso es solucionar el problema *cube summation*.
+- Las **rutas** (*app/Http/routes.php*), donde se registran las rutas de la aplicación, en este caso el home ('/') que muestra el formulario y la ruta que recibe los datos por POST ('/summ') y redirige al controlador para solucionar el problema, el cual a su vez da la solución en texto plano.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+> **Nota:** no se uso la capa de modelo debido a que no se hizo uso de base de datos.
 
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+####**Controlador**
+Como se había dicho antes, el controlador es el que contiene la lógica de la aplicación, para ello se crearon dos clases, la clase auxiliar ***Point.php*** (*/app/Point.php*), que solamente representa un objeto usado por la otra clase, ***SolutionCotroller.php***, que es la encargada de resolver el problem el cual es pasado como parámetro a través del objeto *Response* en formato de texto plano y es procesada para obtener cada uno de los comando que representan el problema, una vez obtenida la solución, se retorna como texto plano, y si hay errores en la ejecución también se retorna en dicha salida.
