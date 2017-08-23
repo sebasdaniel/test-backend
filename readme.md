@@ -1,4 +1,4 @@
-# test-gravility-backend
+# test-backend
 
 La aplicación resuelve el problema [cube summation](https://www.hackerrank.com/challenges/cube-summation) de la pagina [HakerRank](https://www.hackerrank.com).
 Las capas con que cuenta la aplicación son las misma de Laravel, ya que se utilizo dicho framework, pero las que se usan en este caso son:
