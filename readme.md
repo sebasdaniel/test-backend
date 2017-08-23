@@ -9,5 +9,5 @@ Las capas con que cuenta la aplicación son las misma de Laravel, ya que se util
 
 > **Nota:** no se uso la capa de modelo debido a que no se hizo uso de base de datos.
 
-####**Controlador**
+#### **Controlador**
 Como se había dicho antes, el controlador es el que contiene la lógica de la aplicación, para ello se crearon dos clases, la clase auxiliar ***Point.php*** (*/app/Point.php*), que solamente representa un objeto usado por la otra clase, ***SolutionCotroller.php***, que es la encargada de resolver el problem el cual es pasado como parámetro a través del objeto *Response* en formato de texto plano y es procesada para obtener cada uno de los comando que representan el problema, una vez obtenida la solución, se retorna como texto plano, y si hay errores en la ejecución también se retorna en dicha salida.
